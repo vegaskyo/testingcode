@@ -1,0 +1,96 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "hadoop.fullname" . }}-distcp-script
+  labels:
+    app: {{ include "hadoop.name" . }}
+    release: {{ .Release.Name }}
+    component: distcp-script
+data:
+  distcp.sh: |
+    #!/bin/bash
+
+    # Exit immediately if a command exits with a non-zero status
+    set -e
+
+    # Source and destination URIs passed as environment variables
+    SRC_URI="${SRC_URI}"
+    DEST_URI="${DEST_URI}"
+    NUM_MAPPERS="${NUM_MAPPERS}"
+
+    # Validate input
+    if [[ -z "$SRC_URI" || -z "$DEST_URI" ]]; then
+      echo "Source and destination URIs must be provided."
+      exit 1
+    fi
+
+    if [[ -z "$NUM_MAPPERS" ]]; then
+      NUM_MAPPERS=50  # Default number of mappers if not specified
+    fi
+
+    echo "Starting DistCp from $SRC_URI to $DEST_URI with $NUM_MAPPERS mappers."
+
+    # Run DistCp command
+    hadoop distcp -m "$NUM_MAPPERS" "$SRC_URI" "$DEST_URI"
+
+    echo "DistCp operation completed successfully."
+
+=======================
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "hadoop.fullname" . }}-distcp-job
+  labels:
+    app: {{ include "hadoop.name" . }}
+    release: {{ .Release.Name }}
+    component: distcp-job
+spec:
+  backoffLimit: 4
+  template:
+    metadata:
+      labels:
+        app: {{ include "hadoop.name" . }}
+        release: {{ .Release.Name }}
+        component: distcp-job
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: distcp-container
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          command: ["/bin/bash", "/scripts/distcp.sh"]
+          env:
+            - name: SRC_URI
+              value: "{{ .Values.distcp.srcUri }}"
+            - name: DEST_URI
+              value: "{{ .Values.distcp.destUri }}"
+            - name: NUM_MAPPERS
+              value: "{{ .Values.distcp.numMappers }}"
+          volumeMounts:
+            - name: distcp-script
+              mountPath: /scripts
+              readOnly: true
+            - name: hadoop-config
+              mountPath: /tmp/hadoop-config
+      volumes:
+        - name: distcp-script
+          configMap:
+            name: {{ include "hadoop.fullname" . }}-distcp-script
+        - name: hadoop-config
+          configMap:
+            name: {{ include "hadoop.fullname" . }}
+
+=========================
+
+distcp:
+  srcUri: "hdfs://hadoop1-hadoop-hdfs-nn:9000/"
+  destUri: "hdfs://hadoop2-hadoop-hdfs-nn:9000/"
+  numMappers: "100"
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "1"
+    limits:
+      memory: "1Gi"
+      cpu: "1"
