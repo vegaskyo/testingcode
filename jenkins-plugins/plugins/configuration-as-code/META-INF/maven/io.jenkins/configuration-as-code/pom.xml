@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.jenkins</groupId>
+  <artifactId>configuration-as-code</artifactId>
+  <version>1873.vea_5814ca_9c93</version>
+  <packaging>hpi</packaging>
+  <name>Configuration as Code Plugin</name>
+  <description>Manage Jenkins configuration as code</description>
+  <url>https://github.com/jenkinsci/configuration-as-code-plugin</url>
+  <inceptionYear>2016</inceptionYear>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>jetersen</id>
+      <name>Joseph Petersen</name>
+    </developer>
+    <developer>
+      <id>timja</id>
+      <name>Tim Jacomb</name>
+    </developer>
+    <developer>
+      <id>oleg_nenashev</id>
+      <name>Oleg Nenashev</name>
+    </developer>
+  </developers>
+  <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
+    <connection>scm:git:https://github.com/jenkinsci/configuration-as-code-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/configuration-as-code-plugin.git</developerConnection>
+    <tag>ea5814ca9c93fcd22d46528a59a835e61a464335</tag>
+    <url>https://github.com/jenkinsci/configuration-as-code-plugin</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>maven.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>maven.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>caffeine-api</artifactId>
+      <version>3.1.8-133.v17b_1ff2e0599</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>commons-text-api</artifactId>
+      <version>1.12.0-129.v99a_50df237f7</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>json-api</artifactId>
+      <version>20240303-41.v94e11e6de726</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>prism-api</artifactId>
+      <version>1.29.0-17</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>snakeyaml-api</artifactId>
+      <version>2.3-123.v13484c65210a_</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.vavr</groupId>
+      <artifactId>vavr</artifactId>
+      <version>0.10.5</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jenkins-ci.tools</groupId>
+        <artifactId>maven-hpi-plugin</artifactId>
+        <version>3.57</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
