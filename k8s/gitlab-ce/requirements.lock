@@ -1,0 +1,9 @@
+dependencies:
+- name: redis
+  repository: https://charts.helm.sh/stable/
+  version: 10.5.7
+- name: postgresql
+  repository: https://charts.helm.sh/stable/
+  version: 8.6.4
+digest: sha256:cdfe7bf44fea803840f3488c1d4fe885c2f06602176844251e386cedf17fcf75
+generated: "2024-10-31T01:29:02.4775959+07:00"

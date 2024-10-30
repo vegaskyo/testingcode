@@ -1,0 +1,15 @@
+helm install gitlab-ce . \
+--set image="gitlab/gitlab-ce:17.5.1-ce.0" \
+--set imagePullPolicy=IfNotPresent \
+--set externalUrl="http://gitlab.local/" \
+--set gitlabRootPassword=gitlab123 \
+--set serviceType=NodePort \
+--set resources.requests.memory=2Gi \
+--set resources.requests.cpu=1 \
+--set resources.limits.memory=2Gi \
+--set resources.limits.cpu=1 \
+--set postgresql.imageTag="11.7.0-debian-10-r9" \
+--set postgresql.cpu=500m \
+--set postgresql.memory=512Mi \
+--set redis.resources.requests.memory=512Mi \
+--set redis.persistence.size=5Gi
