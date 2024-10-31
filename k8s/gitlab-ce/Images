@@ -26,3 +26,85 @@ helm install gitlab-ce . \
 --set global.appConfig.terraformState.enabled=false \  
 --set global.appConfig.dependencyProxy.enabled=false \  
 --set global.appConfig.backups.enabled=false  
+
+
+---------
+
+Here are the unique images and their corresponding Docker commands:
+
+1. Gitaly:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitaly:v17.5.1
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitaly:v17.5.1 zhundev24/gitaly:v17.5.1
+docker push zhundev24/gitaly:v17.5.1
+```
+
+2. GitLab Exporter:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-exporter:15.0.0
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-exporter:15.0.0 zhundev24/gitlab-exporter:15.0.0
+docker push zhundev24/gitlab-exporter:15.0.0
+```
+
+3. GitLab Runner:
+```bash
+docker pull registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v17.5.0
+docker tag registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v17.5.0 zhundev24/gitlab-runner:alpine-v17.5.0
+docker push zhundev24/gitlab-runner:alpine-v17.5.0
+```
+
+4. GitLab Shell:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-shell:v14.39.0
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-shell:v14.39.0 zhundev24/gitlab-shell:v14.39.0
+docker push zhundev24/gitlab-shell:v14.39.0
+```
+
+5. Kubectl:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/kubectl:v17.5.1
+docker tag registry.gitlab.com/gitlab-org/build/cng/kubectl:v17.5.1 zhundev24/kubectl:v17.5.1
+docker push zhundev24/kubectl:v17.5.1
+```
+
+6. GitLab KAS:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-kas:v17.5.1
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-kas:v17.5.1 zhundev24/gitlab-kas:v17.5.1
+docker push zhundev24/gitlab-kas:v17.5.1
+```
+
+7. GitLab Toolbox:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-toolbox-ce:v17.5.1
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-toolbox-ce:v17.5.1 zhundev24/gitlab-toolbox-ce:v17.5.1
+docker push zhundev24/gitlab-toolbox-ce:v17.5.1
+```
+
+8. Nginx Ingress Controller:
+```bash
+docker pull registry.gitlab.com/gitlab-org/cloud-native/mirror/images/ingress-nginx/controller:v1.11.2
+docker tag registry.gitlab.com/gitlab-org/cloud-native/mirror/images/ingress-nginx/controller:v1.11.2 zhundev24/ingress-nginx-controller:v1.11.2
+docker push zhundev24/ingress-nginx-controller:v1.11.2
+```
+
+9. GitLab Container Registry:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-container-registry:v4.10.0-gitlab
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-container-registry:v4.10.0-gitlab zhundev24/gitlab-container-registry:v4.10.0-gitlab
+docker push zhundev24/gitlab-container-registry:v4.10.0-gitlab
+```
+
+10. GitLab Sidekiq:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-sidekiq-ce:v17.5.1
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-sidekiq-ce:v17.5.1 zhundev24/gitlab-sidekiq-ce:v17.5.1
+docker push zhundev24/gitlab-sidekiq-ce:v17.5.1
+```
+
+11. GitLab Webservice:
+```bash
+docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-webservice-ce:v17.5.1
+docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-webservice-ce:v17.5.1 zhundev24/gitlab-webservice-ce:v17.5.1
+docker push zhundev24/gitlab-webservice-ce:v17.5.1
+```
