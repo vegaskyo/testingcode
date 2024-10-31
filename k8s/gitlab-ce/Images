@@ -108,3 +108,38 @@ docker pull registry.gitlab.com/gitlab-org/build/cng/gitlab-webservice-ce:v17.5.
 docker tag registry.gitlab.com/gitlab-org/build/cng/gitlab-webservice-ce:v17.5.1 zhundev24/gitlab-webservice-ce:v17.5.1
 docker push zhundev24/gitlab-webservice-ce:v17.5.1
 ```
+
+========================
+docker pull zhundev24/gitaly:v17.5.1
+docker tag zhundev24/gitaly:v17.5.1 10.30.132.15/longvh/gitaly:v17.5.1
+docker push 10.30.132.15/longvh/gitaly:v17.5.1
+docker pull zhundev24/gitlab-exporter:15.0.0
+docker tag zhundev24/gitlab-exporter:15.0.0 10.30.132.15/longvh/gitlab-exporter:15.0.0
+docker push 10.30.132.15/longvh/gitlab-exporter:15.0.0
+docker pull zhundev24/gitlab-runner:alpine-v17.5.0
+docker tag zhundev24/gitlab-runner:alpine-v17.5.0 10.30.132.15/longvh/gitlab-runner:alpine-v17.5.0
+docker push 10.30.132.15/longvh/gitlab-runner:alpine-v17.5.0
+docker pull zhundev24/gitlab-shell:v14.39.0
+docker tag zhundev24/gitlab-shell:v14.39.0 10.30.132.15/longvh/gitlab-shell:v14.39.0
+docker push 10.30.132.15/longvh/gitlab-shell:v14.39.0
+docker pull zhundev24/kubectl:v17.5.1
+docker tag zhundev24/kubectl:v17.5.1 10.30.132.15/longvh/kubectl:v17.5.1
+docker push 10.30.132.15/longvh/kubectl:v17.5.1
+docker pull zhundev24/gitlab-kas:v17.5.1
+docker tag zhundev24/gitlab-kas:v17.5.1 10.30.132.15/longvh/gitlab-kas:v17.5.1
+docker push 10.30.132.15/longvh/gitlab-kas:v17.5.1
+docker pull zhundev24/gitlab-toolbox-ce:v17.5.1
+docker tag zhundev24/gitlab-toolbox-ce:v17.5.1 10.30.132.15/longvh/gitlab-toolbox-ce:v17.5.1
+docker push 10.30.132.15/longvh/gitlab-toolbox-ce:v17.5.1 
+docker pull zhundev24/ingress-nginx-controller:v1.11.2
+docker tag zhundev24/ingress-nginx-controller:v1.11.2 10.30.132.15/longvh/ingress-nginx-controller:v1.11.2
+docker push 10.30.132.15/longvh/ingress-nginx-controller:v1.11.2 
+docker pull zhundev24/gitlab-container-registry:v4.10.0-gitlab
+docker tag zhundev24/gitlab-container-registry:v4.10.0-gitlab 10.30.132.15/longvh/gitlab-container-registry:v4.10.0-gitlab
+docker push 10.30.132.15/longvh/gitlab-container-registry:v4.10.0-gitlab
+docker pull zhundev24/gitlab-sidekiq-ce:v17.5.1
+docker tag zhundev24/gitlab-sidekiq-ce:v17.5.1 10.30.132.15/longvh/gitlab-sidekiq-ce:v17.5.1
+docker push 10.30.132.15/longvh/gitlab-sidekiq-ce:v17.5.1
+docker pull zhundev24/gitlab-webservice-ce:v17.5.1
+docker tag zhundev24/gitlab-webservice-ce:v17.5.1 10.30.132.15/longvh/gitlab-webservice-ce:v17.5.1
+docker push 10.30.132.15/longvh/gitlab-webservice-ce:v17.5.1
