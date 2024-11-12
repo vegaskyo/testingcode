@@ -1,0 +1,8 @@
+./spark-submit.cmd --packages io.delta:delta-spark_2.12:3.2.1,io.delta:delta-storage:3.2.1,io.acryl:acryl-spark-lineage:0.2.16,org.apache.spark:spark-sql_2.12:3.5.1 `
+--conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" `
+--conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" `
+--conf "spark.datahub.coalesce_jobs=false" `
+--conf "spark.datahub.metadata.include_scheme=false" `
+--conf "spark.datahub.rest.server=http://localhost:8933" `
+--conf "" 
+--conf "spark.extraListeners=datahub.spark.DatahubSparkListener" test.py
