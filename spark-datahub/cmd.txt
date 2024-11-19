@@ -1,0 +1,30 @@
+.\spark-submit.cmd `
+    --packages io.acryl:acryl-spark-lineage:0.2.14,io.delta:delta-spark_2.12:3.2.0,io.delta:delta-storage:3.2.0,io.openlineage:openlineage-spark_2.12:1.22.0 `
+    --conf "spark.extraListeners=datahub.spark.DatahubSparkListener" `
+    --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" `
+    --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" `
+    test.py
+
+
+
+
+# In PowerShell
+Remove-Item -Recurse -Force spark-warehouse/source_table
+Remove-Item -Recurse -Force spark-warehouse/derived_table
+Remove-Item -Recurse -Force derby.log
+Remove-Item -Recurse -Force metastore_db
+
+Remove-Item -Recurse -Force spark-warehouse/derived_table_sql -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force spark-warehouse/derived_table -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force spark-warehouse/source_table -ErrorAction SilentlyContinue
+Remove-Item -Recurse -Force metastore_db -ErrorAction SilentlyContinue
+Remove-Item derby.log -ErrorAction SilentlyContinue
+
+
+
+.\spark-submit.cmd `
+    --packages io.acryl:acryl-spark-lineage:0.2.16,io.delta:delta-spark_2.12:3.2.0,io.delta:delta-storage:3.2.0 `
+    --conf "spark.extraListeners=datahub.spark.DatahubSparkListener" `
+    --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" `
+    --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" `
+    test.py
