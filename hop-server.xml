@@ -20,7 +20,7 @@
 
     <hop-server>
         <name>server-8181</name>
-        <hostname>localhost</hostname>
+        <hostname>127.0.0.1</hostname>
         <port>8181</port>
         <shutdownPort>8182</shutdownPort>
 
